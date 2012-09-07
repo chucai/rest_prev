@@ -1,37 +1,38 @@
-<%= form_for(@interface) do |f| %>
-  <% if @interface.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@interface.errors.count, "error") %> prohibited this interface from being saved:</h2>
-
-      <ul>
-      <% @interface.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @interface, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :url, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :url, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :method, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :method, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :params, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :params, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :returns, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :returns, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :auth, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.check_box :auth, :class => 'check_box' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :url %><br />
-    <%= f.text_field :url %>
-  </div>
-  <div class="field">
-    <%= f.label :method %><br />
-    <%= f.text_field :method %>
-  </div>
-  <div class="field">
-    <%= f.label :params %><br />
-    <%= f.text_field :params %>
-  </div>
-  <div class="field">
-    <%= f.label :returns %><br />
-    <%= f.text_field :returns %>
-  </div>
-  <div class="field">
-    <%= f.label :auth %><br />
-    <%= f.check_box :auth %>
-  </div>
-  <div class="actions">
-    <%= f.submit "提交" %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                interfaces_path, :class => 'btn' %>
   </div>
 <% end %>

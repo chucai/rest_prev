@@ -1,25 +1,27 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = @interface.class -%>
+<h1><%=t '.title', :default => model_class.model_name.human %></h1>
 
-<p>
-  <b>Url:</b>
-  <%= @interface.url %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:url) %>:</strong></dt>
+  <dd><%= @interface.url %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:method) %>:</strong></dt>
+  <dd><%= @interface.method %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:params) %>:</strong></dt>
+  <dd><%= @interface.params %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:returns) %>:</strong></dt>
+  <dd><%= @interface.returns %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:auth) %>:</strong></dt>
+  <dd><%= @interface.auth %></dd>
+</dl>
 
-<p>
-  <b>Method:</b>
-  <%= @interface.method %>
-</p>
-
-<p>
-  <b>Params:</b>
-  <%= @interface.params %>
-</p>
-
-<p>
-  <b>Returns:</b>
-  <%= @interface.returns %>
-</p>
-
-
-<%= link_to 'Edit', edit_interface_path(@interface) %> |
-<%= link_to 'Back', interfaces_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              interfaces_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_interface_path(@interface), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              interface_path(@interface),
+              :method => 'delete',
+              :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')),
+              :class => 'btn btn-danger' %>
+</div>

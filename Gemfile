@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://ruby.taobao.org'
 
 gem 'rails', '3.2.6'
 
@@ -22,14 +22,20 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+
+  # Bootstrap
+  gem 'anjlab-bootstrap-rails', '>= 2.1', :require => 'bootstrap-rails'
+  gem 'bootstrap-will_paginate', '0.0.3'
+  gem 'bootstrap_helper', "1.4.1"
+
 end
 
 gem 'jquery-rails'
-
+gem 'thin'
 group :development, :test do 
   gem 'database_cleaner'
   gem 'factory_girl'
   gem 'factory_girl_rails'
   gem 'rspec-rails', '2.9.0'
-	gem 'capybara', '1.1.2'
+  gem 'capybara', '1.1.2'
 end
