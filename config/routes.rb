@@ -1,5 +1,5 @@
 RestPrev::Application.routes.draw do
-  get "welcome/index"
+  resources :interfaces
 
   root :to => 'welcome#index'
 end

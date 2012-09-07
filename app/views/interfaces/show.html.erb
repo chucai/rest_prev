@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Url:</b>
+  <%= @interface.url %>
+</p>
+
+<p>
+  <b>Method:</b>
+  <%= @interface.method %>
+</p>
+
+<p>
+  <b>Params:</b>
+  <%= @interface.params %>
+</p>
+
+<p>
+  <b>Returns:</b>
+  <%= @interface.returns %>
+</p>
+
+
+<%= link_to 'Edit', edit_interface_path(@interface) %> |
+<%= link_to 'Back', interfaces_path %>
