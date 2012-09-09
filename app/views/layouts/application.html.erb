@@ -14,11 +14,8 @@
     <%= stylesheet_link_tag "application", :media => "all" %>
 
     <link href="/assets/rails.png" rel="shortcut icon">
-    <link href="/assets/apple-touch-icon.png" rel="apple-touch-icon">
-    <link href="/assets/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
-    <link href="/assets/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
     <style type="text/css">
-      body { padding: 60px 0; }
+      body { padding: 100px 0 0 0; }
     </style>
   </head>
   <body>
@@ -26,12 +23,9 @@
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <%= link_to "InterFace", root_url, :class => "brand" %>
+          <h1>
+            <%= link_to "InterFace", root_url, :class => "brand" %>
+          </h1>
         </div>
       </div>
     </div>
@@ -56,9 +50,6 @@
               </div><!--/.well -->
             </div><!--/span-->
            <div class="span9">
-            <div class="will">
-               <span> <%= link_to "增加", new_interface_path %></span>
-            </div>
               <%= yield %>
             </div>
         </div><!--/row-->

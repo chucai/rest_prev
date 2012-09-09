@@ -1,5 +1,5 @@
 <%- model_class = @interface.class -%>
-<h1><%=t '.title', :default => model_class.model_name.human %></h1>
+<h3><%=t '.title', :default => model_class.model_name.human %></h3>
 
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:url) %>:</strong></dt>
@@ -8,10 +8,16 @@
   <dd><%= @interface.method %></dd>
   <dt><strong><%= model_class.human_attribute_name(:params) %>:</strong></dt>
   <dd><%= @interface.params %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:returns) %>:</strong></dt>
-  <dd><%= @interface.returns %></dd>
   <dt><strong><%= model_class.human_attribute_name(:auth) %>:</strong></dt>
   <dd><%= @interface.auth %></dd>
+  <dt>
+    <strong><%= model_class.human_attribute_name(:returns) %>:</strong>
+  </dt>
+  <dd>
+    <pre class="prettyprint">
+      <%= @interface.returns_to_hash %>
+    </pre>
+  </dd>
 </dl>
 
 <div class="form-actions">
