@@ -25,8 +25,7 @@ group :assets do
 
   # Bootstrap
   gem 'anjlab-bootstrap-rails', '>= 2.1', :require => 'bootstrap-rails'
-  gem 'bootstrap-will_paginate', '0.0.3'
-  gem 'bootstrap_helper', "1.4.1"
+  gem 'bootstrap_helper', "2.0.0.1"
 
 end
 
