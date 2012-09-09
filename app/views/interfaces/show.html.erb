@@ -14,8 +14,8 @@
     <strong><%= model_class.human_attribute_name(:returns) %>:</strong>
   </dt>
   <dd>
-    <pre class="prettyprint">
-      <%= @interface.returns_to_hash %>
+    <pre class="prettyprint nowrap" ref="response-json">
+      <%= @interface.returns_to_hash.to_json %>
     </pre>
   </dd>
 </dl>
