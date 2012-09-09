@@ -221,6 +221,14 @@ zh:
       long: ! '%Y年%b%d日 %H:%M'
       short: ! '%b%d日 %H:%M'
     pm: 下午
+  helpers:
+    links:
+      cancel: "取消"
+      edit: "修改"
+      destroy: "删除"
+      confirm: "确定删除?"
+      new: "新建"
+      back: "返回"
   activemodel:
     errors:
       <<: *errors

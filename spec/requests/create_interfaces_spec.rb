@@ -19,6 +19,17 @@ describe "CreateInterfaces" do
       click_button "提交"
 
       page.should have_content("保存成功")
+
+
+      #visit "/api/get_token.json?id=1"
+      #page.body.should == "{result:ok}"
+      url = "/api/get_token.json?id=1"
+      method = "get"
+      Interface.stub(:fetch_result).with(url, method).and_return {
+        {:result => "ok"}
+      }
+      get url
+      response.body.should == {:result => "ok"}.to_json
     end
   end
 end

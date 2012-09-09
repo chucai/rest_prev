@@ -20,7 +20,7 @@
   <div class="control-group">
     <%= f.label :returns, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :returns, :class => 'text_field' %>
+      <%= f.text_area :returns, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
@@ -31,7 +31,7 @@
   </div>
 
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= f.submit "提交", :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 interfaces_path, :class => 'btn' %>
   </div>

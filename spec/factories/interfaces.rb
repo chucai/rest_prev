@@ -1,10 +1,12 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
+  
   factory :interface do
-    url "MyString"
-    method "MyString"
-    params "MyString"
-    returns "MyString"
+    url "/api/get_token.json"
+    method "get"
+    params "id"
+    returns "{result:ok}"
   end
+
 end

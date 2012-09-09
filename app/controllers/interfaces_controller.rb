@@ -1,6 +1,6 @@
-# -*- encoding: utf-8 -*- 
+# -*- encoding: utf-8 -*-
 class InterfacesController < ApplicationController
-  
+
   def index
     @interfaces = Interface.all
 
@@ -11,11 +11,12 @@ class InterfacesController < ApplicationController
   end
 
   def show
-    @interface = Interface.find(params[:id])
-
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @interface }
+      format.html {
+        @interface = Interface.find(params[:id])
+      }
+      format.json { 
+      }
     end
   end
 
