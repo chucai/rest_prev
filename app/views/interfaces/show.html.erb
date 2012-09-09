@@ -1,15 +1,18 @@
 <%- model_class = @interface.class -%>
-<h3><%=t '.title', :default => model_class.model_name.human %></h3>
-
+<%= render_breadcrumb %>
 <dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+  <dd><%= @interface.title || "没有名称" %></dd>
   <dt><strong><%= model_class.human_attribute_name(:url) %>:</strong></dt>
   <dd><%= @interface.url %></dd>
   <dt><strong><%= model_class.human_attribute_name(:method) %>:</strong></dt>
-  <dd><%= @interface.method %></dd>
+  <dd><%= @interface.method.upcase %></dd>
   <dt><strong><%= model_class.human_attribute_name(:params) %>:</strong></dt>
   <dd><%= @interface.params %></dd>
   <dt><strong><%= model_class.human_attribute_name(:auth) %>:</strong></dt>
-  <dd><%= @interface.auth %></dd>
+  <dd><%= @interface.auth_value %></dd>
+  <dt><strong>支持格式</strong></dt>
+  <dd>JSON</dd>
   <dt>
     <strong><%= model_class.human_attribute_name(:returns) %>:</strong>
   </dt>

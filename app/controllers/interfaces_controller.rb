@@ -11,9 +11,13 @@ class InterfacesController < ApplicationController
   end
 
   def show
+    @interface = Interface.find(params[:id])
+    drop_breadcrumb("接口", interfaces_path)
+    drop_breadcrumb(@interface.method.upcase)
+    drop_breadcrumb(@interface.title)
+  
     respond_to do |format|
       format.html {
-        @interface = Interface.find(params[:id])
       }
       format.json { 
       }
@@ -59,7 +63,7 @@ class InterfacesController < ApplicationController
 
     respond_to do |format|
       if @interface.update_attributes(params[:interface])
-        format.html { redirect_to @interface, notice: 'Interface was successfully updated.' }
+        format.html { redirect_to @interface, notice: '接口成功修改.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

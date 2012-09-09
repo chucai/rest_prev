@@ -239,6 +239,7 @@ zh:
       interface: 接口
     attributes:
       interface:
+        title: 接口名称
         url: URL
         method: 方法
         params: 参数

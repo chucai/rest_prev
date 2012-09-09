@@ -7,6 +7,11 @@
   </blockquote>
 
   <hr/>
-  <%= link_to t('.new', :default => t("helpers.links.new")),
-  new_interface_path,
-  :class => 'btn btn-primary' %>
+  <div class="row">
+    <div class="span2 offset1">
+  <p>
+  <%= link_to "新建接口",  new_interface_path,  :class => 'btn btn-primary btn-block' %>
+  <%= link_to "导出数据",  new_interface_path,  :class => 'btn btn-inverse btn-block' %>
+  </p> 
+    </div>
+  </div>

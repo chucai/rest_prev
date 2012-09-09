@@ -1,14 +1,20 @@
 <%= form_for @interface, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'text_field large' %>
+    </div>
+  </div>
+  <div class="control-group">
     <%= f.label :url, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :url, :class => 'text_field' %>
+      <%= f.text_field :url, :class => 'text_field large' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :method, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :method, :class => 'text_field' %>
+      <%= f.select :method, Interface.select_methods_tag %>
     </div>
   </div>
   <div class="control-group">
@@ -18,15 +24,15 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :returns, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :returns, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
     <%= f.label :auth, :class => 'control-label' %>
     <div class="controls">
       <%= f.check_box :auth, :class => 'check_box' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :returns, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :returns,  :rows => 8 %>
     </div>
   </div>
 

@@ -1,4 +1,2 @@
-<%- model_class = @interface.class -%>
-<h1><%=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human,
-                                 :default => "Edit #{model_class.model_name.human}") %></h1>
+<h3>修改接口</h3>
 <%= render :partial => 'form' %>
