@@ -10,6 +10,11 @@ class Interface < ActiveRecord::Base
     (auth == true) ? "是"  : "否"
   end
 
+  before_save :change_to_json
+  def change_to_json
+    self.returns.gsub!(/"/, "\"\/").gsub!(/\r/,'').gsub!(/\//,'')
+  end
+
   class << self
     def fetch_result(*args)
       url    = args.first.split("?").first
@@ -20,7 +25,6 @@ class Interface < ActiveRecord::Base
       else
         {:result => "No map route"}
       end
-
     end
 
     def select_methods_tag
@@ -35,7 +39,13 @@ class Interface < ActiveRecord::Base
 
     private
     def parse_str_to_hash(str)
-      eval str.gsub(/:/, "=>").gsub(/(\w+)/) { |str| "'#{str}'" }
+      begin 
+        JSON.parse str.gsub(/\r/,'').gsub(/\n/,'').gsub(/\//,'')
+      rescue Excepiton => e
+        Rails.logger.info("error message: #{e}")
+      ensure
+        {:result => "json parse error!"}
+      end
     end
   end
 

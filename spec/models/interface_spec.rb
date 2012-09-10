@@ -23,10 +23,28 @@ describe Interface do
 
   describe "parse" do 
     it "should return hash value" do
-      str = "{result:ok}"
+      str = "{\"result\":\"ok\"}"
       reply = Interface.send(:parse_str_to_hash, str)
       reply.should == {
         'result' => 'ok'
+      }
+    end
+
+    it "url" do
+      str = "{\"url\": \"http://baidu.com\"}"
+      Interface.send(:parse_str_to_hash, str).should == {
+        'url' => "http://baidu.com"
+      }
+    end
+
+    it "deep hash" do
+      str = "{\"web\":{\"url\":\"http://www.baidu.com\",\"token\":\"yes\"},\"username\":\"bill\"}"
+      Interface.send(:parse_str_to_hash, str).should == {
+       'web' => {
+          'url' => 'http://www.baidu.com',
+          'token' => 'yes'
+        },
+        'username' => "bill"
       }
     end
   end
