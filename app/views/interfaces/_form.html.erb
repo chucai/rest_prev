@@ -3,12 +3,18 @@
     <%= f.label :title, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :title, :class => 'text_field large' %>
+      <span class="help_inline">
+        接口名称，最好使用中文
+      </span>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :url, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :url, :class => 'text_field large' %>
+      <span class="help_inline">
+        eg: /api/test/interface.json
+      </span>
     </div>
   </div>
   <div class="control-group">
@@ -21,6 +27,9 @@
     <%= f.label :params, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :params, :class => 'text_field' %>
+      <span class="help_inline">
+        eg: id=1&amp;params1=value1&amp;params2=value2
+      </span>
     </div>
   </div>
   <div class="control-group">
@@ -33,15 +42,15 @@
     <%= f.label :returns, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_area :returns,  :rows => 8 %>
+      <span class="help-inline">
+        标准的JSON格式:  {  "key": "value"  }
+      </span>
     </div>
-    <p class='help'>
-      格式:  {  "key": "value"  }
-    </p>
   </div>
 
   <div class="form-actions">
     <%= f.submit "提交", :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                interfaces_path, :class => 'btn' %>
-  </div>
-<% end %>
+      interfaces_path, :class => 'btn' %>
+    </div>
+  <% end %>
