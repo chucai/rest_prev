@@ -3,3 +3,6 @@
  *= require_tree .
  *= require_self
  */
+.over-hiden {
+  overflow: hidden;
+}
