@@ -10,5 +10,5 @@
   width: 438px;
 }
 .sidebar-nav {
-  height: 430px;
+  min-height: 430px;
 }
