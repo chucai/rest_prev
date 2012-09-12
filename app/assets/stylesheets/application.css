@@ -6,3 +6,9 @@
 .over-hiden {
   overflow: hidden;
 }
+#interface_returns{
+  width: 438px;
+}
+.sidebar-nav {
+  height: 430px;
+}
