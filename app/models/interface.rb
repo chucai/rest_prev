@@ -12,8 +12,8 @@ class Interface < ActiveRecord::Base
 
   before_save :change_to_json
   def change_to_json
-    str = self.returns
-    self.returns = str.gsub(/"/, "\"\/").gsub(/\r/,'').gsub(/\//,'') if str
+    #str = self.returns
+    #self.returns = str.gsub(/"/, "\\"") #.gsub(/\r/,'').gsub(/\//,'') if str
   end
 
   class << self
