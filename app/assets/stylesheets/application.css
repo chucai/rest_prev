@@ -9,3 +9,6 @@
 #interface_returns {
   width: 438px;
 }
+.sidebar-nav {
+  min-height: 430px;
+}

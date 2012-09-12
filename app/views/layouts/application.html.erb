@@ -41,11 +41,11 @@
           <div class="span3">
             <div class="well sidebar-nav">
               <h3>
-                接口定义
+                接口列表
               </h3>
               <ul class="nav nav-list">
                 <% for inter in @inters -%>
-                  <li class="over-hiden current">
+                  <li class="over-hiden">
                   <a href="<%= interface_path(inter) %>">
                     <span class="label label-important">
                       <%= inter.method.upcase %>

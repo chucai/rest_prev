@@ -47,7 +47,7 @@ class InterfacesController < ApplicationController
 
     respond_to do |format|
       if @interface.save
-        format.html { redirect_to root_url, notice: '保存成功.' }
+        format.html { redirect_to interface_path(@interface) , notice: '保存成功.' }
         format.json { render json: @interface, status: :created, location: @interface }
       else
         format.html { render action: "new" }
