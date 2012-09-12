@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*- 
 class Interface < ActiveRecord::Base
-  attr_accessible :method, :params, :returns, :url, :auth, :title
+  attr_accessible :method, :params, :returns, :url, :auth, :title, :status
 
   def returns_to_hash
     Interface.send(:parse_str_to_hash, self.returns)
@@ -12,7 +12,8 @@ class Interface < ActiveRecord::Base
 
   before_save :change_to_json
   def change_to_json
-    self.returns.gsub!(/"/, "\"\/").gsub!(/\r/,'').gsub!(/\//,'')
+    str = self.returns
+    self.returns = str.gsub(/"/, "\"\/").gsub(/\r/,'').gsub(/\//,'') if str
   end
 
   class << self
@@ -24,6 +25,17 @@ class Interface < ActiveRecord::Base
         parse_str_to_hash(result.returns)
       else
         {:result => "No map route"}
+      end
+    end
+
+    def fetch_result_and_status(*args)
+      url    = args.first.split("?").first
+      method = args.last
+      result = Interface.where(:url => url, :method => method).first
+      if result
+        [parse_str_to_hash(result.returns), result.status.to_i ]
+      else
+        [{:result => "No map route"}, 503]
       end
     end
 
@@ -40,7 +52,7 @@ class Interface < ActiveRecord::Base
     private
     def parse_str_to_hash(str)
       begin 
-        JSON.parse str.gsub(/\r/,'').gsub(/\n/,'').gsub(/\//,'')
+        JSON.parse str.gsub(/\r/,'').gsub(/\n/,'')#.gsub(/\//,'')
       rescue Excepiton => e
         Rails.logger.info("error message: #{e}")
       ensure

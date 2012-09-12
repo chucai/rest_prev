@@ -13,7 +13,7 @@ class InterfacesController < ApplicationController
   def show
     @interface = Interface.find(params[:id])
     drop_breadcrumb("接口", interfaces_path)
-    drop_breadcrumb(@interface.method.upcase)
+    drop_breadcrumb("<span class='label label-important'>#{@interface.method.upcase}</span>")
     drop_breadcrumb(@interface.title)
   
     respond_to do |format|

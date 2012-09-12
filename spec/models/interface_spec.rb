@@ -9,7 +9,7 @@ describe Interface do
     }
     
     it "should fetch hash result" do
-      Interface.stub(:parse_str_to_hash).with("{result:ok}").and_return { {:result => "ok"}   }
+      Interface.stub(:parse_str_to_hash).with("{\"result\":\"ok\"}").and_return { {:result => "ok"}   }
       url    = "#{interface.url}?id=1"
       method = "get"
       result = Interface.fetch_result(url, method)
@@ -19,6 +19,14 @@ describe Interface do
       result.is_a?(Hash).should be_true
     end
 
+
+    it "should result and status" do
+      result, status = Interface.fetch_result_and_status(interface.url, interface.method)
+      result.should == {
+        "result" => "ok"
+      }
+      status.should == 200
+    end
   end
 
   describe "parse" do 

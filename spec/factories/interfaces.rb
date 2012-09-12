@@ -6,7 +6,8 @@ FactoryGirl.define do
     url "/api/get_token.json"
     method "get"
     params "id"
-    returns "{result:ok}"
+    status  200
+    returns '{"result":"ok"}'
   end
 
 end

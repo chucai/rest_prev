@@ -14,7 +14,7 @@ class ApiController < ApplicationController
                "get"
              end
 
-    reply = Interface.fetch_result(url, method)
-    render :json => reply.to_json
+    reply, status = Interface.fetch_result_and_status(url, method)
+    render :json => reply.to_json, :status => status
   end
 end

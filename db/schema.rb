@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120909091304) do
+ActiveRecord::Schema.define(:version => 20120912012318) do
 
   create_table "interfaces", :force => true do |t|
     t.string   "url"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20120909091304) do
     t.datetime "updated_at",                    :null => false
     t.boolean  "auth",       :default => false
     t.string   "title"
+    t.integer  "status",     :default => 200
   end
 
 end

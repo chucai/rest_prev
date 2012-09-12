@@ -245,3 +245,4 @@ zh:
         params: 参数
         returns: 返回值
         auth: 需要认证
+        status: 状态码
